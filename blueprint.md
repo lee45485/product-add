@@ -1,38 +1,30 @@
-# Blueprint: My YouTube Clone
+# Blueprint: 제품홍보 앱 (Product Promotion App)
 
 ## Overview
-A high-performance, visually stunning YouTube-inspired video platform prototype built using modern web standards. This application focuses on a seamless user experience, responsive design, and modular architecture using Web Components.
+This application is a specialized tool designed to generate compelling, bilingual promotional content for products tailored to specific target audiences and countries. Based on the Google Opal specification, it automates the creation of marketing copy, product imagery, and video narratives.
 
 ## Project Outline
-### Style & Design
-- **Aesthetics:** Modern, clean, and "vibrant" look. Use of subtle textures, multi-layered drop shadows, and high-quality typography.
-- **Color Palette:** Deep blacks/whites for themes, accented with a vibrant "YouTube Red" and subtle gradients.
-- **Typography:** Expressive sans-serif fonts (e.g., Inter or Roboto).
-- **Components:** Custom Web Components for the video player, thumbnails, and navigation elements.
-- **Responsiveness:** Full mobile-to-desktop support using Container Queries and Flexbox/Grid.
+### Style & Design (Based on Opal Spec)
+- **Aesthetics:** "Premium, state-of-the-art" design. Modern, professional, and sleek.
+- **Visuals:** High-quality imagery, glassmorphism, and dynamic animations.
+- **Color Palette:** Refined palette (cool grays, off-whites) with deep, rich accent colors.
+- **Typography:** Modern sans-serif (Inter/Outfit) with a strong hierarchy.
+- **Layout:** Bento-style or asymmetrical responsive grids. Mobile-first approach.
 
 ### Features
-- **Video Feed:** A dynamic grid of video thumbnails with hover effects.
-- **Search Bar:** A prominent search interface with clear focus states.
-- **Category Filters:** Interactive "chips" for filtering content.
-- **Navigation:** A collapsible sidebar for easy access to different sections.
-- **Interactive Elements:** Buttons and cards with soft, deep shadows and "glow" effects on interaction.
+- **Bilingual Content:** Generates promotional text in the target country's primary language and Korean.
+- **Image Generation:** Creates professional-grade product visuals.
+- **Video Concepting:** Synthesizes a narrative for promotional videos.
+- **Bilingual Display:** Prominent local language with toggleable or side-by-side Korean translation.
+- **Search & Research:** Integrated information gathering (simulated/mocked in prototype).
 
 ## Current Plan & Steps
-1.  **Phase 1: Foundation & Layout**
-    - Set up basic HTML structure in `index.html`.
-    - Define global CSS variables and reset in `style.css`.
-    - Create the main layout grid (Header, Sidebar, Main Content).
-2.  **Phase 2: UI Components (Web Components)**
-    - Implement `<yt-header>` for the search and user actions.
-    - Implement `<yt-sidebar>` for navigation.
-    - Implement `<yt-video-card>` for individual video entries.
-    - Implement `<yt-categories>` for the filter bar.
-3.  **Phase 3: Data & Interactivity**
-    - Create a mock data service for video information.
-    - Populate the feed dynamically using JavaScript.
-    - Add basic search and filter logic.
-4.  **Phase 4: Polish & Refinement**
-    - Apply advanced CSS effects (glassmorphism, shadows, animations).
-    - Ensure accessibility (ARIA labels, keyboard navigation).
-    - Final responsive checks.
+1.  **Phase 1: Implementation of the Specification**
+    - Create the input interface (Product, Audience, Country).
+    - Implement the "Generation" logic (Mocked AI responses based on the Opal prompts).
+    - Develop the bilingual output viewer.
+2.  **Phase 2: Visual Polish**
+    - Apply the "Rich Aesthetics" defined in the Opal instruction (Glassmorphism, Tailwind styling).
+    - Ensure full responsiveness.
+3.  **Phase 3: GitHub Deployment**
+    - Update the repository `https://github.com/lee45485/product-add.git` with the new implementation.
