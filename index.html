@@ -11,59 +11,62 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-  <div class="bg-mesh"></div>
+  <div class="mesh-bg"></div>
   <div class="app-container">
-    <header class="animate-reveal" style="text-align: center; margin-bottom: 5rem;">
-      <div style="display: inline-block; padding: 0.5rem 1.5rem; border-radius: 100px; background: rgba(0,0,0,0.05); font-weight: 600; font-size: 0.9rem; margin-bottom: 1.5rem; letter-spacing: 2px; text-transform: uppercase;">Next-Gen Marketing</div>
-      <h1 class="hero-gradient-text" style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px;">제품홍보 AI<br>Promotion Studio</h1>
+    <header class="animate-fade" style="text-align: center; margin-bottom: 6rem;">
+      <div style="display: inline-block; padding: 0.6rem 1.8rem; border-radius: 100px; background: rgba(0,0,0,0.04); font-weight: 700; font-size: 0.9rem; margin-bottom: 2rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">Next-Gen AI Marketing</div>
+      <h1 style="font-size: clamp(3.5rem, 10vw, 5.5rem); font-weight: 800; line-height: 1; letter-spacing: -3px; color: var(--primary);">Global Promotion<br><span style="color: var(--accent);">Studio</span></h1>
+      <p style="margin-top: 2rem; font-size: 1.4rem; opacity: 0.6; font-weight: 400;">세계를 무대로 당신의 제품을 가장 빛나게 홍보하세요.</p>
     </header>
 
     <main>
-      <section id="input-section" class="glass-card animate-reveal" style="max-width: 800px; margin: 0 auto; animation-delay: 0.2s;">
-        <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <section id="input-section" class="card-premium animate-fade" style="max-width: 900px; margin: 0 auto; border-radius: 32px;">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
             <div>
-              <label style="font-weight: 700; color: var(--primary-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">홍보할 상품명</label>
-              <input type="text" id="product-name" class="input-field" placeholder="무선 헤드폰, 전기차 등">
+              <label style="font-weight: 800; color: var(--primary); font-size: 1rem; text-transform: uppercase; margin-bottom: 1rem; display: block; letter-spacing: 1px;">홍보할 상품명</label>
+              <input type="text" id="product-name" class="input-luxury" placeholder="예: 자전거, 무선 헤드폰">
             </div>
             <div>
-              <label style="font-weight: 700; color: var(--primary-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">타켓 오디언스</label>
-              <input type="text" id="target-audience" class="input-field" placeholder="20대 직장인, 운동 선수 등">
+              <label style="font-weight: 800; color: var(--primary); font-size: 1rem; text-transform: uppercase; margin-bottom: 1rem; display: block; letter-spacing: 1px;">타겟 고객층</label>
+              <input type="text" id="target-audience" class="input-luxury" placeholder="예: 도시 출퇴근러, 학생">
             </div>
           </div>
           
-          <label style="font-weight: 700; color: var(--primary-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">글로벌 타겟 국가</label>
-          <select id="target-country" class="input-field">
-            <option value="USA">United States (English)</option>
-            <option value="UK">United Kingdom (English)</option>
-            <option value="Japan">Japan (日本語)</option>
-            <option value="China">China (简体中文)</option>
-            <option value="France">France (Français)</option>
-            <option value="Germany">Germany (Deutsch)</option>
-            <option value="Spain">Spain (Español)</option>
-            <option value="Italy">Italy (Italiano)</option>
-            <option value="Brazil">Brazil (Português)</option>
-            <option value="Vietnam">Vietnam (Tiếng Việt)</option>
-            <option value="Thailand">Thailand (ไทย)</option>
-          </select>
+          <div>
+            <label style="font-weight: 800; color: var(--primary); font-size: 1rem; text-transform: uppercase; margin-bottom: 1rem; display: block; letter-spacing: 1px;">글로벌 타겟 국가 선택</label>
+            <select id="target-country" class="input-luxury">
+              <option value="USA">United States (English)</option>
+              <option value="UK">United Kingdom (English)</option>
+              <option value="Japan">Japan (日本語)</option>
+              <option value="China">China (简体中文)</option>
+              <option value="France">France (Français)</option>
+              <option value="Germany">Germany (Deutsch)</option>
+              <option value="Spain">Spain (Español)</option>
+              <option value="Italy">Italy (Italiano)</option>
+              <option value="Brazil">Brazil (Português)</option>
+              <option value="Vietnam">Vietnam (Tiếng Việt)</option>
+              <option value="Thailand">Thailand (ไทย)</option>
+            </select>
+          </div>
           
-          <div style="text-align: center; margin-top: 2rem;">
-            <button id="generate-btn" class="btn-primary">
-              생성하기 <i data-lucide="sparkles"></i>
+          <div style="text-align: center; margin-top: 1rem;">
+            <button id="generate-btn" class="btn-luxury">
+              홍보 캠페인 생성하기 <i data-lucide="sparkles"></i>
             </button>
           </div>
         </div>
       </section>
 
       <section id="result-section" style="display: none; margin-top: 2rem;">
-        <div id="loading-state" style="text-align: center; padding: 5rem 0;">
-          <div style="width: 80px; height: 80px; border: 4px solid var(--primary-color); border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite; margin: 0 auto;"></div>
-          <h2 style="margin-top: 2rem; font-weight: 800; font-size: 1.5rem;">AI 컨셉 분석 중...</h2>
-          <p style="opacity: 0.6;">글로벌 트렌드와 마케팅 데이터를 수집하고 있습니다.</p>
+        <div id="loading-state" style="text-align: center; padding: 6rem 0;">
+          <div style="width: 100px; height: 100px; border: 6px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite; margin: 0 auto;"></div>
+          <h2 style="margin-top: 2.5rem; font-weight: 800; font-size: 2rem;">전략 분석 및 렌더링 중...</h2>
+          <p style="opacity: 0.5; font-size: 1.2rem;">글로벌 마케팅 데이터를 동기화하고 있습니다.</p>
         </div>
 
         <div id="output-content">
-          <!-- Premium results injected here -->
+          <!-- Results injected here -->
         </div>
       </section>
     </main>
