@@ -5,10 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadingState = document.getElementById('loading-state');
   const outputContent = document.getElementById('output-content');
 
-  if (!generateBtn) {
-    console.error('Generate button not found');
-    return;
-  }
+  if (!generateBtn) return;
 
   generateBtn.addEventListener('click', () => {
     const product = document.getElementById('product-name').value.trim();
@@ -20,77 +17,95 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Prepare UI
+    // UI State: Show Loading
     inputSection.style.display = 'none';
     resultSection.style.display = 'block';
     loadingState.style.display = 'block';
-    outputContent.innerHTML = '';
-    outputContent.style.display = 'none'; // Hide content while loading
+    outputContent.style.display = 'none';
 
-    // Simulate AI Generation delay
+    // Simulate AI Processing
     setTimeout(() => {
-      loadingState.style.display = 'none';
-      outputContent.style.display = 'block'; // Show content after loading
-      renderResults(product, audience, country);
-    }, 2000);
+      try {
+        renderResults(product, audience, country);
+        loadingState.style.display = 'none';
+        outputContent.style.display = 'block';
+      } catch (error) {
+        console.error('Rendering error:', error);
+        alert('결과를 생성하는 중 오류가 발생했습니다.');
+        location.reload();
+      }
+    }, 1500);
   });
 
   function renderResults(product, audience, country) {
     const langMap = {
       USA: { lang: 'English', greeting: 'Revolutionize Your Life' },
-      Japan: { lang: 'Japanese', greeting: 'あなたの生活を革新する' },
+      UK: { lang: 'English (UK)', greeting: 'Elevate Your Everyday' },
+      Japan: { lang: 'Japanese', greeting: 'あなたの生活를 革新する' },
+      China: { lang: 'Chinese', greeting: '革新您的生活' },
       France: { lang: 'French', greeting: 'Révolutionnez votre vie' },
-      Germany: { lang: 'German', greeting: 'Revolutionieren Sie Ihr Leben' }
+      Germany: { lang: 'German', greeting: 'Revolutionieren Sie Ihr Leben' },
+      Spain: { lang: 'Spanish', greeting: 'Revoluciona tu vida' },
+      Italy: { lang: 'Italian', greeting: 'Rivoluziona la tua vita' },
+      Brazil: { lang: 'Portuguese', greeting: 'Revolucione sua vida' },
+      Vietnam: { lang: 'Vietnamese', greeting: 'Cách mạng hóa cuộc sống của bạn' },
+      Thailand: { lang: 'Thai', greeting: 'ปฏิวัติชีวิตของคุณ' }
     };
 
     const target = langMap[country] || langMap['USA'];
 
-    const htmlContent = \`
+    outputContent.innerHTML = \`
       <div class="glass-card" style="margin-bottom: 2rem;">
-        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color);">\${target.greeting}</h2>
-        <div class="result-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-          <div class="media-container" style="border-radius: 16px; overflow: hidden; background: #000; aspect-ratio: 4/3;">
-            <img src="https://picsum.photos/seed/\${encodeURIComponent(product)}/800/600" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--primary-color); text-align: center;">\${target.greeting}</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div style="border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-premium); background: #000; aspect-ratio: 16/9;">
+            <img src="https://picsum.photos/seed/\${encodeURIComponent(product)}/800/450" alt="Product" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
-          <div class="video-placeholder" style="border-radius: 16px; overflow: hidden; background: var(--bg-color); display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px dashed var(--primary-color); aspect-ratio: 4/3;">
-            <i data-lucide="video" size="48" style="color: var(--primary-color);"></i>
-            <p style="margin-top: 1rem; font-weight: 600;">Promotional Video Concept Ready</p>
+          <div style="border-radius: 20px; overflow: hidden; background: var(--surface-color); border: 2px dashed var(--primary-color); display: flex; flex-direction: column; align-items: center; justify-content: center; aspect-ratio: 16/9; padding: 1rem; text-align: center;">
+            <i data-lucide="sparkles" size="48" style="color: var(--accent-color); margin-bottom: 1rem;"></i>
+            <h4 style="font-weight: 700; color: var(--primary-color);">Bilingual Ad Campaign Ready</h4>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">Optimized for \${country} Market</p>
           </div>
         </div>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <div class="glass-card">
-          <h3 style="margin-bottom: 1rem; border-bottom: 2px solid var(--accent-color); display: inline-block;">\${target.lang} Version</h3>
-          <p style="font-size: 1.1rem; line-height: 1.8;">
-            Experience the future of <strong>\${product}</strong> designed specifically for <strong>\${audience}</strong>. 
-            Our latest innovation brings unparalleled quality and style to your daily routine. 
-            Don't miss out on the most anticipated release in <strong>\${country}</strong> this year.
+        <div class="glass-card" style="border-top: 4px solid var(--accent-color);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <i data-lucide="languages" size="24" style="color: var(--accent-color);"></i>
+            <h3 style="font-weight: 700;">\${target.lang} Version</h3>
+          </div>
+          <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-color);">
+            Discover why <strong>\${product}</strong> is the top choice for <strong>\${audience}</strong> in \${country}. 
+            Our cutting-edge technology and premium design deliver an experience like no other. 
+            Join the community and see the difference today.
           </p>
         </div>
-        <div class="glass-card">
-          <h3 style="margin-bottom: 1rem; border-bottom: 2px solid var(--primary-color); display: inline-block;">한국어 번역 (Korean)</h3>
-          <p style="font-size: 1.1rem; line-height: 1.8;">
-            <strong>\${audience}</strong>를 위해 특별히 설계된 <strong>\${product}</strong>의 미래를 경험해보세요.
-            우리의 최신 혁신은 당신의 일상에 비교할 수 없는 품질과 스타일을 선사합니다.
-            올해 <strong>\${country}</strong>에서 가장 기대되는 출시작을 놓치지 마세요.
+
+        <div class="glass-card" style="border-top: 4px solid var(--primary-color);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <i data-lucide="languages" size="24" style="color: var(--primary-color);"></i>
+            <h3 style="font-weight: 700;">한국어 번역</h3>
+          </div>
+          <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-color);">
+            왜 <strong>\${product}</strong>가 \${country}의 <strong>\${audience}</strong>들에게 최고의 선택인지 확인해 보세요.
+            최첨단 기술과 프리미엄 디자인이 결합되어 이전에 없던 특별한 경험을 선사합니다.
+            지금 바로 커뮤니티에 합류하여 그 차이를 직접 느껴보세요.
           </p>
         </div>
       </div>
       
-      <div style="text-align: center; margin-top: 3rem;">
-        <button class="btn-primary" id="reset-btn">새로운 문구 생성하기</button>
+      <div style="text-align: center; margin-top: 4rem;">
+        <button class="btn-primary" id="reset-btn" style="padding: 1rem 3rem; font-size: 1.1rem;">
+          <i data-lucide="refresh-cw" size="20" style="vertical-align: middle; margin-right: 0.5rem;"></i>
+          다시 생성하기
+        </button>
       </div>
     \`;
     
-    outputContent.innerHTML = htmlContent;
-    
-    const resetBtn = document.getElementById('reset-btn');
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        window.location.reload();
-      });
-    }
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      window.location.reload();
+    });
     
     if (window.lucide) {
       lucide.createIcons();

@@ -29,9 +29,16 @@
           <label style="font-weight: 600;">홍보 국가</label>
           <select id="target-country" class="input-field">
             <option value="USA">미국 (USA)</option>
+            <option value="UK">영국 (UK)</option>
             <option value="Japan">일본 (Japan)</option>
+            <option value="China">중국 (China)</option>
             <option value="France">프랑스 (France)</option>
             <option value="Germany">독일 (Germany)</option>
+            <option value="Spain">스페인 (Spain)</option>
+            <option value="Italy">이탈리아 (Italy)</option>
+            <option value="Brazil">브라질 (Brazil)</option>
+            <option value="Vietnam">베트남 (Vietnam)</option>
+            <option value="Thailand">태국 (Thailand)</option>
           </select>
           
           <button id="generate-btn" class="btn-primary" style="margin-top: 1rem;">홍보문구 생성하기</button>
@@ -39,14 +46,14 @@
       </section>
 
       <section id="result-section" style="display: none; margin-top: 4rem;">
-        <div id="loading-state" style="text-align: center; display: none;">
+        <div id="loading-state" style="text-align: center; margin-bottom: 2rem;">
           <div class="glass-card" style="display: inline-block; padding: 3rem;">
             <div style="width: 50px; height: 50px; border: 5px solid var(--primary-color); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
             <p style="margin-top: 1.5rem; font-weight: 600;">AI가 글로벌 트렌드를 분석하고 있습니다...</p>
           </div>
         </div>
 
-        <div id="output-content" class="animate-in">
+        <div id="output-content" class="animate-in" style="display: none;">
           <!-- Results will be injected here -->
         </div>
       </section>
@@ -57,6 +64,6 @@
     @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 
-  <script src="main.js" type="module"></script>
+  <script src="main.js"></script>
 </body>
 </html>
