@@ -1,14 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Clone - Premium Video Experience</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
-</body>
+  <div class="app-container">
+    <yt-header></yt-header>
+    <yt-sidebar></yt-sidebar>
+    <main id="app-main">
+      <yt-categories></yt-categories>
+      <div id="video-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+        <p>Loading videos...</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="main.js" type="module"></script>
+  <script>
+    // Lucide icons need to be initialized after components are rendered.
+    // We'll handle this inside the components or globally.
+    window.addEventListener('load', () => lucide.createIcons());
+  </script>
+1</body>
 </html>
